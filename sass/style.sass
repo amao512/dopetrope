@@ -1,0 +1,690 @@
+*
+	margin: 0;
+	padding: 0;
+	outline: none;
+	font-family: sans-serif;
+	color: #252122;
+
+body
+	background-image: url('../img/bg.png');
+	transition: all ease .5s;
+
+.page-wrapper
+	width: 100%;
+	.container
+		max-width: 1200px;
+		margin: auto;
+		padding: 0 20px;
+	.grid
+		display: grid;
+	.btn-red,
+	.btn-dark
+		border-radius: 5px;
+		color: #fff;
+		border: none;
+		padding: 10px 24px;
+		font-size: 16px;
+		cursor: pointer;
+		font-weight: 700;
+	.btn-dark
+		background-color: #252122;
+		&:hover
+			background-color: lighten(#252122, 7%);
+	.btn-red
+		background-color: #D52349;
+		&:hover
+			background-color: lighten(#D52349, 7%);
+
+// Шапка
+.header-wrapper
+	background-color: #fff;
+	text-align: center;
+	padding: 63px 0;
+	border-bottom: 1px solid #CCCCCC;
+	.head-title
+		padding-bottom: 30px;
+		a
+			color: #252122;
+			text-decoration: none;
+			font-size: 36px;
+			font-weight: 800;
+	.head-nav
+		.nav-links
+			display: inline-block;
+			padding: 9px 17px;
+			border-radius: 5px;
+			padding: .8em 1.3em .8em 1.3em;
+			margin-right: 10px;
+			transition: background-color 0.25s ease;
+			cursor: pointer;
+			a
+				text-decoration: none;
+				color: #5D5D5D;
+				font-size: 16px;
+				font-weight: 400;
+				font-style: italic;
+			&:hover
+				background-color: #f3f3f3;
+			&:nth-child(1)
+				background-color: #d52349;
+				a
+					color: #fff;
+			&:nth-child(2)
+				&:hover .drop-hide
+					display: block;
+			&:nth-child(5)
+				margin-right: 0;
+
+// Выпадающий меню
+.hide-link
+	position: relative;
+	z-index: 1;
+	.drop-hide
+		width: 170px;
+		position: absolute;
+		padding: 20px 50px 20px 15px;
+		margin-top: 15px;
+		margin-left: -35px;
+		display: none;
+		text-align: start;
+		background-color: #242021;
+		border-radius: 5px;
+		box-shadow: 1px 2px 5px 2px black;
+		transition: all 1s ease;
+		.nav-hide
+			padding: 10px 5px;
+			transition: color .25s ease;
+			a 
+				text-decoration: none;
+				font-size: 16px;
+				color: #5D5D5D;
+			&:hover a
+				color: #fff;
+			&:nth-child(4)
+				position: relative;
+				.under-hide
+					position: absolute;
+					padding: 10px 10px;
+					background-color: #242021;
+					width: 200px;
+					padding: 20px 20px 20px 15px;
+					text-align: start;
+					border-radius: 5px;
+					box-shadow: 1px 2px 5px 2px black;
+					transition: all 1s ease;
+					margin-left: 160px;
+					top: -30px;
+					display: none;
+					.under-nav-hide
+						padding: 10px;
+						a 
+							text-decoration: none;
+							font-size: 16px;
+							color: #5D5D5D;
+							transition: color .25s ease;
+							&:hover
+								color: #fff;
+						&:hover a
+							color: #fff;
+			&:nth-child(4):hover .under-hide
+				display: block;
+
+// Выдвегающейся меню
+#menu
+	width: 300px;
+	margin-left: -300px;
+	background: #252122;
+	position: fixed;
+	left: 0;
+	top: 0;
+	padding-top: 10px;
+	bottom: 0;
+	transition: all ease .5s;
+	z-index: 999;
+	padding: 20px 0;
+	.left-menu
+		text-align: start;
+		.left-link
+			padding: 10px 20px;
+			border-bottom: 1px solid #5D5D5D;
+			a
+				color: #fff;
+				text-decoration: none;
+				font-style: italic;
+			.left-hide-menu
+				.left-hide
+					padding: 10px 20px;
+					// border-bottom: 1px solid #5D5D5D;
+					a 
+						color: #888888;
+					.left-under-hide
+					 	.under-left-hide
+					 		padding: 10px 20px;
+					 		// border-bottom: 1px solid #5D5D5D;
+	// Кнопка выдвегащейсего меню
+	.c-hamburger 
+		display: none;
+		position: fixed;
+		right: 0;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		width: 50px;
+		height: 40px;
+		font-size: 0;
+		box-shadow: none;
+		cursor: pointer;
+		background: #cb0032;
+		border-radius: 5px;
+		border: none;
+		margin-top: 10px;
+		z-index: 1000;
+		&:focus
+			outline: none;
+		span
+			display: block;
+			position: absolute;
+			top: 19px;
+			left: 8px;
+			right: 8px;
+			height: 2px;
+			background: #fff;
+			&:before,
+			&:after
+				position: absolute;
+				display: block;
+				left: 0;
+				width: 100%;
+				height: 2px;
+				background: #fff;
+				content: '';
+			&:before
+				top: -10px;
+			&:after
+				bottom: -10px;
+	.c-hamburger-line
+		position: fixed;
+		background: #cb0032;
+		margin-left: 15px;
+		transition: margin-left .5s ease;
+		span
+			transition: background 0s .5s;
+			&:before,
+			&:after
+				transition-duration: .3s, .3s;
+				transition-delay: .3s, 0s;
+			&:before
+				transition-property: top, transform;
+			&:after
+				transition-property: bottom, transform;
+		&.is-active
+			background: #252122;
+			margin-left: 245px;
+			span
+				background: none;
+				&:before
+					top: 0;
+					transform: rotate(-45deg);
+				&:after
+					bottom: 0;
+					transform: rotate(45deg);
+				&:before,
+				&:after
+					transition-delay: 0s, .2s;
+
+.body-active
+	margin-left: 300px;
+	margin-right: -300px;
+#menu.nav-active
+	margin-left: 0;
+
+
+// Howdy Content
+.howdy-wrapper
+	// min-height: 50vh;
+	padding: 120px 0;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	.content-howdy
+		padding: 45px 82px;
+		background-color: #242021;
+		text-align: center;
+		max-width: 500px;
+		margin: 0 auto;
+		border-radius: 5px;
+		h1
+			font-size: 36px;
+			color: #fff;
+			margin-bottom: 23px;
+			font-weight: 600;
+		span
+			font-size: 22px;
+			color: #D52349;
+			font-weight: 200;
+			letter-spacing: 1px;
+
+// Intro Content
+.intro-wrapper
+	background-color: #fff;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 0 0 30px 0;
+	.content-intro
+		grid-template-columns: repeat(3, 1fr);
+		// grid-template-rows: 2fr 1fr;
+		padding: 0 0 44px 0;
+		.intro-box
+			justify-self: center;
+			padding: 25px 36px;
+			text-align: center;
+			margin: 44px 0;
+			max-width: 244px;
+			height: 290px;
+			margin-bottom: 50px;
+			padding-bottom: 75px;
+			cursor: pointer;
+			transition: box-shadow .25s ease;
+			&:hover
+				box-shadow: 2px 10px 33px 0 rgba(0, 0, 0, 0.15);
+			.icon
+				padding: 25px 0 11px;
+				margin: 0 0 15px;
+				max-width: 100%;
+			h3
+				font-size: 25px;
+				color: #252122;
+				margin-bottom: 20px;
+			span
+				font-size: 15px;
+				font-weight: 400;
+				color: #5d5d5d;
+		.intro-buttons
+			grid-column: 1/4;
+			justify-self: center;
+			.intro-btn
+				padding: 16.5px 63px;
+				font-size: 22px;
+				margin-right: 20px;
+				transition: background-color .25s ease;
+
+
+//Portfolio Content
+.blogs-section
+	// text-align: center;
+	.section-portfolio
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 15px;
+		padding: 30px 0;
+		color: #252221;
+		h3
+			grid-column: 1/4;
+			justify-self: center;
+			position: relative;
+			font-size: 22px;
+			margin-bottom: 25px;
+		.portfolio-box
+			background-color: #fff;
+			border-bottom: 1px solid #CCCCCC;
+			max-width: 374px;
+			justify-content: center;
+			// margin: 20px 0;
+			.portfolio-img
+				// background-size: cover;
+				// background-position: center;
+				img
+					width: 100%;
+			.portfolio-data
+				padding: 47.5px 30px;
+				h3
+					font-size: 23.5px;
+					padding-bottom: 25px;
+				span
+					font-size: 17px;
+					font-weight: 400;
+					color: #5d5d5d;
+				.portfolio-btn
+					padding: 34px 0 0 0;
+					input
+						padding: 14px 24px;
+						font-size: 16px;
+	.section-blog
+		grid-template-columns: 1fr 1fr;
+		padding: 25px 0;
+		grid-gap: 30px;
+		h3
+			grid-column: 1/3;
+			justify-self: center;
+			font-size: 22px;
+			margin-bottom: 25px;
+		.blog-box
+			justify-content: center;
+			background-color: #fff;
+			max-width: 580px;
+			border-bottom: 1px solid #CCCCCC;
+			.blog-img
+				img
+					width: 100%;
+			.blog-data
+				padding: 47.5px 30px;
+				h3
+					font-size: 20px;
+					color: #252122;
+				.b-post-date
+					font-size: 15px;
+					color: #5D5D5D;
+					margin: 10px 0 30px 0;
+					font-style: italic;
+				span
+					font-size: 15px;
+					color: #5D5D5D;
+				.blog-btn
+					margin: 30px 0;
+					.b-btn-red
+						padding: 12px 24px;
+						margin-right: 12px;
+					.b-btn-dark
+						padding: 12px 24px;
+
+
+.main-footer
+	background-color: #252221;
+	padding: 20px 0 80px 0;
+	.footer-section
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 50px;
+		.f-Blandit-content
+			grid-column: 1/3;
+			color: #fff;
+			padding: 25px 10px 0 0;
+			h2
+				color: #fff;
+			.f-date-blogs
+				padding: 25px 0;
+				.f-blog
+					grid-template-columns: .15fr 1fr;
+					border-bottom: 1px solid #5D5D5D;
+					padding: 20px 0;
+					&:last-child
+						border: none;
+					.first-date
+						// display: inline-block;
+					.f-link	
+						align-self: center;
+						a 
+							color: #fff;
+							text-decoration: none;
+							font-size: 16px;
+							display: block;
+							margin-bottom: 10px;
+						span
+							color: #858484;
+		.f-About-content
+			padding: 25px 0;
+			max-width: 374px;
+			h2
+				color: #fff;
+			.about-img
+				padding: 45px 0;
+				img 	
+					width: 100%;
+			.about-text
+				p 
+					color: #858484;
+					font-size: 16px;
+					line-height: 25px;
+					margin-bottom: 30px;
+					a 
+						color: #C5C4C4;
+			.about-button
+				.about-btn
+					padding: 14px 25px;
+
+		.f-links-content
+			h2
+				color: #fff;
+				padding: 0 0 20px 0;
+			a 
+				color: #C5C4C4;
+				display: block;
+				font-size: 16px;
+				border-bottom: 1px solid #5D5D5D;
+				padding: 25px 0;
+				&:last-child
+					border: none;
+				&:hover
+					text-decoration: none;
+
+		.f-contact-content
+			h2
+				color: #fff;
+				padding: 0 0 20px 0;
+			.contact-icons
+				padding: 25px 0;
+				img
+					margin-right: 10px;
+					cursor: pointer;
+					transition: .25s ease;
+					&:hover
+						transform: scale(1.1);
+			.intro-contacts
+				.c-adress-intro,
+				.c-mail-intro,
+				.c-phone-intro
+					grid-template-columns: .8fr 1fr;
+					padding: 30px 0;
+					border-bottom: 1px solid #5D5D5D;
+					p 
+						color: #fff;
+					span
+						color: #858484;
+						line-height: 30px;
+				.c-mail-intro
+					a 	
+						color: #C5C4C4;
+						&:hover
+							text-decoration: none;
+				.c-phone-intro
+					border: none;
+		.f-copy-content
+			background-color: rgba(255, 255, 255, 0.05);
+			padding: 15px 33px;
+			grid-column: 1/4;
+			justify-self: center;
+			border-radius: 5px;
+			p 
+				color: #858484;
+				display: inline-block;
+				border-right: 1px solid #5D5D5D;
+				padding: 5px 15px;
+			span
+				color: #858484;
+				padding: 5px 15px;
+				a 
+					color: #C5C4C4;
+					&:hover
+						text-decoration: none;
+
+// ссылка на left side bar
+.left-side
+	.leftsidebar-content
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 45px;
+		padding: 60px 0;
+		.left-box
+			grid-column: 1;
+			grid-row: 1;
+			.first-left-box
+				max-width: 365px;
+				background-color: #fff;
+				border-bottom: 1px solid #CCCCCC;
+				margin-bottom: 30px;
+				.flb-img
+					img
+						width: 100%;
+				.flb-data
+					padding: 40px 30px;
+					h3
+						font-size: 22px;
+						color: #252122;
+						margin: 10px 0 30px 0;
+					span
+						font-size: 15px;
+						color: #5D5D5D;
+					.flb-btn
+						margin: 30px 0 15px 0;
+						.flb-button
+							padding: 12px 24px;
+			.third-left-box
+				background-color: #fff;
+				border-bottom: 1px solid #CCCCCC;
+				max-width: 365px;
+				// max-height: 70%;
+				.tlb-data
+					padding: 40px 30px;
+					h3
+						font-size: 22px;
+						color: #252122;
+						margin: 10px 0 30px 0;
+					span
+						font-size: 15px;
+						color: #5D5D5D;
+						line-height: 30px;
+					.tlb-links	
+						padding: 20px 0;
+						.tlb-link
+							padding: 20px 0;
+							color: #D52349;
+							display: block;
+							border-bottom: 1px solid #CCCCCC;
+							&:hover
+								text-decoration: none;
+							&:last-child
+								border: none;
+					.tlb-btn
+						margin: 30px 0 15px 0;
+						.tlb-button
+							padding: 12px 24px;
+		.second-left-box
+			grid-column: 2/4;
+			grid-row: 1/3;
+			background-color: #fff;
+			border-bottom: 1px solid #CCCCCC;
+			max-width: 830px;
+			.slb-img
+				img
+					width: 100%;
+			.slb-data
+				padding: 40px 30px;
+				h3
+					font-size: 40px;
+					color: #252122;
+					padding: 10px 0 20px 0;
+				p 
+					font-size: 20px;
+					color: #5D5D5D;
+					font-style: italic;
+					padding: 0 0 30px 0;
+				span
+					font-size: 16px;
+					color: #5D5D5D;
+					line-height: 30px;
+				.slb-p2,
+				.slb-p3
+					padding: 30px 0;
+					h4
+						font-size: 22px;
+						padding: 0 0 25px 0;
+
+// ссылка на right side bar
+.right-side
+	.rightsidebar-content
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: 45px;
+		padding: 60px 0;
+		.right-box
+			grid-column: 3;
+			grid-row: 1;
+			.first-right-box
+				max-width: 365px;
+				background-color: #fff;
+				border-bottom: 1px solid #CCCCCC;
+				margin-bottom: 30px;
+				.frb-img
+					img
+						width: 100%;
+				.frb-data
+					padding: 40px 30px;
+					h3
+						font-size: 22px;
+						color: #252122;
+						margin: 10px 0 30px 0;
+					span
+						font-size: 15px;
+						color: #5D5D5D;
+					.frb-btn
+						margin: 30px 0 15px 0;
+						.frb-button
+							padding: 12px 24px;
+			.third-right-box
+				background-color: #fff;
+				border-bottom: 1px solid #CCCCCC;
+				max-width: 365px;
+				// max-height: 70%;
+				.trb-data
+					padding: 40px 30px;
+					h3
+						font-size: 22px;
+						color: #252122;
+						margin: 10px 0 30px 0;
+					span
+						font-size: 15px;
+						color: #5D5D5D;
+						line-height: 30px;
+					.trb-links	
+						padding: 20px 0;
+						.trb-link
+							padding: 20px 0;
+							color: #D52349;
+							display: block;
+							border-bottom: 1px solid #CCCCCC;
+							&:hover
+								text-decoration: none;
+							&:last-child
+								border: none;
+					.trb-btn
+						margin: 30px 0 15px 0;
+						.trb-button
+							padding: 12px 24px;
+		.second-right-box
+			grid-column: 1/3;
+			grid-row: 1/3;
+			background-color: #fff;
+			border-bottom: 1px solid #CCCCCC;
+			max-width: 830px;
+			.srb-img
+				img
+					width: 100%;
+			.srb-data
+				padding: 40px 30px;
+				h3
+					font-size: 40px;
+					color: #252122;
+					padding: 10px 0 20px 0;
+				p 
+					font-size: 20px;
+					color: #5D5D5D;
+					font-style: italic;
+					padding: 0 0 30px 0;
+				span
+					font-size: 16px;
+					color: #5D5D5D;
+					line-height: 30px;
+				.srb-p2,
+				.srb-p3
+					padding: 30px 0;
+					h4
+						font-size: 22px;
+						padding: 0 0 25px 0;
+@import 'media'
